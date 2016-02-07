@@ -1,0 +1,26 @@
+<!doctype html>
+<html data-ng-app="countdownApp">
+  <head>
+    <title>Countdown</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/countdown.js"></script>
+    <link rel="stylesheet" href="lib/countdown.css">
+  </head>
+  <body>
+    <div id="wrapper" data-ng-controller="CountdownCtrl as countdown" data-ng-init="countdown.init()">
+      <img id="logo-image" data-ng-src="{{ countdown.logo }}" />
+
+      <h1 id="page-title">{{ countdown.pageTitle }}</h1>
+
+      <img id="cover-image" data-ng-src="{{ countdown.cover }}" />
+
+      <ul id="the-countdown">
+        <li data-ng-repeat="column in countdown.columns" class="{{ column.unitOrig }}">
+          <span class="column-value">{{ column.value }}</span>
+          <span class="column-unit">{{ column.unit }}</span>
+        </li>
+      </ul>
+
+    </div>
+  </body>
+</html>
